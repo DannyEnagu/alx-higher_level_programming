@@ -39,7 +39,7 @@ int is_palindrome(listint_t **head)
 	reversed = reverse_list(&temp);
 	mid_t = reversed;
 	/* Compare nodes of first half and second half of list */
-	while (current != NULL && reversed != NULL)
+	while (current != NULL)
 	{
 		if (current->n != reversed->n)
 			return (0);
