@@ -29,15 +29,17 @@ int is_palindrome(listint_t **head)
 		current = current->next;
 	}
 
-	current = *head;
 	/* find the middle (position or node) of the list */
 	mid_p = size / 2;
-	for (i = 0; i < mid_p; i++)
+	for (i = 0; i < mid_p - 1; i++)
 		temp = temp->next;
 
 	/* reverse the secode half of the linked list from the middle position */
+	temp = temp->next->next;
 	reverse = reverse_list(&temp);
 	mid_t = reverse;
+	
+	current = *head;
 	/* Compare nodes of first half and second half of list */
 	while (reverse)
 	{
