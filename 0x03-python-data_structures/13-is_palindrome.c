@@ -32,9 +32,14 @@ int is_palindrome(listint_t **head)
 	current = *head;
 	/* find the middle (position or node) of the list */
 	mid_p = ((size % 2) == 0) ? (size / 2) : ((size + 1) / 2);
-	for (i = 0; i < mid_p; i++)
+	for (i = 0; i < (mid_p - 1); i++)
 		temp = temp->next;
+
+	if ((size % 2) == 0 && temp->n != temp->next->n)
+		return (0);
+
 	/* reverse the secode half of the linked list from the middle position */
+	temp = temp->next->next;
 	reversed = reverse_list(&temp);
 	mid_t = reversed;
 	/* Compare nodes of first half and second half of list */
