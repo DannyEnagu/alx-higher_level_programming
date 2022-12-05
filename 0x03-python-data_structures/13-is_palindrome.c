@@ -19,7 +19,7 @@ int is_palindrome(listint_t **head)
 	int size = 0, mid_p = 0, i;
 
 	if (head == NULL || (*head)->next == NULL)
-		return (0);
+		return (1);
 
 	current = *head;
 	temp = *head;
