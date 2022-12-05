@@ -1,115 +1,72 @@
-#include"lists.h"
+#include "lists.h"
 
-listint_t *copy_list(listint_t **head);
-listint_t *reverse_list(listint_t **list);
+listint_t *reverse_listint(listint_t **head);
+int is_palindrome(listint_t **head);
 
 /**
-* is_palindrome - checks if a singly linked list is a palindrome
-*	(i.e reading values from left to right is same as reading
-*	from right to left)
-*
-* @head: head of the list which contains the entire linked list
-*
-* Return: 0 if list is not a palindrome, 1 if it is a palindrome
-*/
+ * reverse_listint - Reverses a singly-linked listint_t list.
+ * @head: A pointer to the starting node of the list to reverse.
+ *
+ * Return: A pointer to the head of the reversed list.
+ */
+listint_t *reverse_listint(listint_t **head)
+{
+	listint_t *node = *head, *next, *prev = NULL;
 
+	while (node)
+	{
+		next = node->next;
+		node->next = prev;
+		prev = node;
+		node = next;
+	}
+
+	*head = prev;
+	return (*head);
+}
+
+/**
+ * is_palindrome - Checks if a singly linked list is a palindrome.
+ * @head: A pointer to the head of the linked list.
+ *
+ * Return: If the linked list is not a palindrome - 0.
+ *         If the linked list is a palindrome - 1.
+ */
 int is_palindrome(listint_t **head)
 {
-	listint_t *reversed, *current, *temp, *mid_t;
-	int size = 0, mid_p = 0, i;
+	listint_t *tmp, *rev, *mid;
+	size_t size = 0, i;
 
-	if (head == NULL || (*head)->next == NULL)
+	if (*head == NULL || (*head)->next == NULL)
 		return (1);
 
-	current = *head;
-	temp = *head;
-	while (current != NULL)
+	tmp = *head;
+	while (tmp)
 	{
 		size++;
-		current = current->next;
+		tmp = tmp->next;
 	}
 
-	current = *head;
-	/* find the middle (position or node) of the list */
-	mid_p = ((size % 2) == 0) ? (size / 2) : ((size + 1) / 2);
-	for (i = 0; i < (mid_p - 1); i++)
-		temp = temp->next;
+	tmp = *head;
+	for (i = 0; i < (size / 2) - 1; i++)
+		tmp = tmp->next;
 
-	/* reverse the secode half of the linked list from the middle position */
-	reversed = reverse_list(&temp);
-	mid_t = reversed;
-	/* Compare nodes of first half and second half of list */
-	while (current != NULL)
+	if ((size % 2) == 0 && tmp->n != tmp->next->n)
+		return (0);
+
+	tmp = tmp->next->next;
+	rev = reverse_listint(&tmp);
+	mid = rev;
+
+	tmp = *head;
+	while (rev)
 	{
-		if (current->n != reversed->n)
+		if (tmp->n != rev->n)
 			return (0);
-
-		current = current->next;
-		reversed = reversed->next;
+		tmp = tmp->next;
+		rev = rev->next;
 	}
-	/* reconstruct the list */
-	reverse_list(&mid_t);
+	reverse_listint(&mid);
 
 	return (1);
-}
-
-/**
-* reverse_list - reverses a single linked list
-*
-* @list: list to reverse
-*
-* Return: A reversed linked list, NULL if fails
-*/
-
-listint_t *reverse_list(listint_t **list)
-{
-	listint_t *previous, *current, *next;
-	listint_t *reversed;
-
-	previous = NULL;
-	current = *list;
-	next = NULL;
-	while (current != NULL)
-	{
-	/* save the link to the next node before moving on */
-		next = current->next;
-	/* current next now points to the previous node */
-		current->next = previous;
-	/* previous now holds the reversed list */
-		previous = current;
-	/* continue loop*/
-		current = next;
-	}
-	reversed = previous;
-
-	return (reversed);
-}
-
-/**
-* copy_list - Create a copy of the original list
-*
-* @head: contains list to copy
-*
-* Return: A copy of the original list on success,
-*	NULL if fails
-*/
-
-listint_t *copy_list(listint_t **head)
-{
-	listint_t *current, *new_list;
-
-	if (head == NULL)
-		return (NULL);
-
-	current = *head; /* used for iterating list*/
-	new_list = NULL; /* head of the new list*/
-
-	while (current != NULL)
-	{
-	/* copy / past each node data to the end of new_list */
-		add_nodeint_end(&new_list, current->n);
-		current = current->next;
-	}
-
-	return (new_list);
 }
