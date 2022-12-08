@@ -26,14 +26,15 @@ def roman_to_int(roman_string):
 
     # check if roman_string is not a string
     # or is equall to None
-    if isinstance(rom_str, str) is not True or rom_str is None:
+    if (not isinstance(rom_str, str) or rom_str is None):
         return 0
 
     sum_t = 0
 
     # substitue all special characters in roman string
     for old, new in sp_cases:
-        rom_str = rom_str.replace(old, new)
+        if old in rom_str:
+            rom_str = rom_str.replace(old, new)
 
     # Add values to sum
     for i in list(rom_str):
