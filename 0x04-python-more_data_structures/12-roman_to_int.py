@@ -1,46 +1,31 @@
 #!/usr/bin/python3
-# Roman numerals and value in python integer
-roman_num = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
-# Some special cases
-sp_cases = [
-    ("IV", '4'),
-    ("IX", '9'),
-    ("XL", '40'),
-    ("XC", '90'),
-    ("CM", '900')
-]
 
 
 def roman_to_int(roman_string):
-    """ Converts Roman numeral to an integer
+    """Converts a roman numeral to an integer."""
+    if (not isinstance(roman_string, str) or
+            roman_string is None):
+        return (0)
 
-       Args:
-        @roman_string: string input
+    roman_dict = {
+            "I": 1,
+            "V": 5,
+            "X": 10,
+            "L": 50,
+            "C": 100,
+            "D": 500,
+            "M": 1000
+    }
+    num = 0
 
-       Return:
-        Integer values on success, 0 if failed
-    """
-    rom_str = roman_string
-    # Capitalize roman_srting
-    rom_str = rom_str if rom_str.isupper() else rom_str.upper()
+    for i in range(len(roman_string)):
+        if roman_dict.get(roman_string[i], 0) == 0:
+            return (0)
 
-    # check if roman_string is not a string
-    # or is equall to None
-    if (not isinstance(rom_str, str) or rom_str is None):
-        return 0
+        if (i != (len(roman_string) - 1) and
+                roman_dict[roman_string[i]] < roman_dict[roman_string[i + 1]]):
+            num += roman_dict[roman_string[i]] * -1
 
-    sum_t = 0
-
-    # substitue all special characters in roman string
-    for old, new in sp_cases:
-        if old in rom_str:
-            rom_str = rom_str.replace(old, new)
-
-    # Add values to sum
-    for i in list(rom_str):
-        if i in roman_num:
-            sum_t += roman_num[i]
         else:
-            sum_t += int(i)
-
-    return sum_t
+            num += roman_dict[roman_string[i]]
+    return (num)
