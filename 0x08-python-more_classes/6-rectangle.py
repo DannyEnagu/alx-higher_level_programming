@@ -6,10 +6,10 @@
 
 
 class Rectangle:
+    """class Declaration "Rectangle"."""
 
     number_of_instances = 0
 
-    """class Declaration "Rectangle"."""
     def __init__(self, width=0, height=0):
         """Initialize a new Regtangle instance
             Args:
