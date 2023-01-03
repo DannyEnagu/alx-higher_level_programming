@@ -1,6 +1,6 @@
 # 0x09. Python - Everything is object
 
-	The project tries to explaine the concept that everything in Python is an Object and how some objects are Immutable (values can not be changed after creation) while others are mutable (values can be changed after creation).
+	This project try to explaine the idea that "everything in Python is an Object" and how some objects are Immutable (values can not be changed after creation) while others are mutable (values can be changed after creation).
 
 ## Resource Links
 
