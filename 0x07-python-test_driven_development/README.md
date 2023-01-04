@@ -1,6 +1,5 @@
 # 0x07. Python - Test-driven development
-	Test-driven development (TDD) in simple trems means writing test that checks if a program do what it is supposed to do.
-It involve writing test for every possible senerio that can cause a program to fail.
+	Test-driven development (TDD) in simple terms, means writing tests that checks if a program/software satisfies the specified requirements or not. It involve writing test for every possible senario that can cause a program/software to fail.
 
 Procedure followed to write tests:
 
