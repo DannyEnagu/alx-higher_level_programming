@@ -45,3 +45,35 @@ affecting our original list object called ``print_sorted()``.
 
     >>> print(my_list)
     [1, 4, 2, 3, 5]
+
+::
+
+Checking for empty list:
+
+::
+    >>> l = MyList()
+    >>> l.print_sorted()
+    []
+
+::
+
+Checking for too many arguments:
+
+::
+
+    >>> l.print_sorted(1)
+    Traceback (most recent call last):
+    ...
+    TypeError: print_sorted() takes 1 positional argument but 2 were given
+
+::
+
+Checking that MyList inherits from list:
+    >>> issubclass(MyList, list)
+    True
+
+::
+
+Checking for list already in correct order:
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
