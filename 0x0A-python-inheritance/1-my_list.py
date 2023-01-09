@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-    Defines the "MyList" module. 
+    Defines the "MyList" module.
 """
 
 
@@ -9,7 +9,7 @@ class MyList(list):
         a list object.
 
         Args:
-            list: list object. 
+            list: list object.
     """
     def print_sorted(self):
         """prints the list, but sorted (ascending sort)"""
@@ -20,4 +20,4 @@ class MyList(list):
             my_list.append(super().__getitem__(i))
 
         my_list.sort()
-        print(my_list) 
+        print(my_list)
