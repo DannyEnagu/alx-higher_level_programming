@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
    Defines ``5-base_geometry`` module which
-    contains and a class ``BaseGeometry`` 
+    contains and a class ``BaseGeometry``
 """
 
 
