@@ -11,13 +11,11 @@ class MyList(list):
         Args:
             list: list object.
     """
+
+    def __init__(self):
+        """Constructor function"""
+        super().__init__()
+
     def print_sorted(self):
         """prints the list, but sorted (ascending sort)"""
-
-        my_list = []
-
-        for i in range(super().__len__()):
-            my_list.append(super().__getitem__(i))
-
-        my_list.sort()
-        print(my_list)
+        print(sorted(self))
