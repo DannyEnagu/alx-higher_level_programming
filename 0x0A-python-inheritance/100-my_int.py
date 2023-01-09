@@ -3,7 +3,7 @@
 
 
 class MyInt(int):
-    """Defines a new class ``MyInt`` is a rebel as it 
+    """Defines a new class ``MyInt`` is a rebel as it
        Invert int operators == and !=.
     """
 
