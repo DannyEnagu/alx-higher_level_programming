@@ -84,6 +84,70 @@ check for other types of value (i.e string, float, list, etc)
 
 ::
 
+::
+
+    >>> bg.integer_validator("name", (8, 9))
+    Traceback (most recent call last):
+    ...
+    TypeError: name must be an integer
+
+::
+
+::
+
+    >>> bg.integer_validator("name", {"key": "value"})
+    Traceback (most recent call last):
+    ...
+    TypeError: name must be an integer
+
+::
+
+::
+
+    >>> bg.integer_validator("name", {0, 1})
+    Traceback (most recent call last):
+    ...
+    TypeError: name must be an integer
+
+::
+
+::
+
+    >>> bg.integer_validator("name", complex(1, 1))
+    Traceback (most recent call last):
+    ...
+    TypeError: name must be an integer
+
+::
+
+::
+
+    >>> bg.integer_validator("name", True)
+    Traceback (most recent call last):
+    ...
+    TypeError: name must be an integer
+
+::
+
+::
+
+    >>> bg.integer_validator("name", frozenset([1, 2, 3]))
+    Traceback (most recent call last):
+    ...
+    TypeError: name must be an integer
+
+::
+
+::
+
+    >>> bg.integer_validator("name", bytearray(b"bytes"))
+    Traceback (most recent call last):
+    ...
+    TypeError: name must be an integer
+
+::
+
+
 check for zero or no argument:
 
 ::
