@@ -11,7 +11,7 @@ This is an example text file on how to use ``BaseGeometry``.
 ``BaseGeometry`` is a class which contains two public instance
 methods ``area()`` and ``integer_validator()``.
 
-``are()`` takes in no argument and raises an exception.
+``area()`` takes in no argument and raises an exception.
 
 ``integer_validator(name, value)`` takes in two arguments.
 ``name`` is assumed to always by string argument.
@@ -19,6 +19,26 @@ if ``value`` is not an integer we raise a TypeError exception,
 with the message <name> must be an integer and 
 if ``value`` is less or equal to 0 we raise a ValueError exception,
 with the message <name> must be greater than 0.
+
+How to use ``area()``
+---------------------
+
+>>> BG = __import__('7-base_geometry').BaseGeometry
+
+Check for area():
+
+   >>> b = BG()
+   >>> b.area()
+   Traceback (most recent call last):
+   ...
+   Exception: area() is not implemented
+
+Checking too many arguments for area:
+
+   >>> b.area(1)
+   Traceback (most recent call last):
+   ...
+   TypeError: area() takes 1 positional argument but 2 were given
 
 
 How to use ``integer_validator(name, value)``
@@ -163,6 +183,14 @@ check for only one argument:
 
 ::
     >>> bg.integer_validator("integer")
+    Traceback (most recent call last):
+    ...
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+::
+
+::
+    >>> bg.integer_validator(2)
     Traceback (most recent call last):
     ...
     TypeError: integer_validator() missing 1 required positional argument: 'value'
