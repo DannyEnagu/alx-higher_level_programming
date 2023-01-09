@@ -1,0 +1,47 @@
+======================
+How to us 1-my_list.py
+======================
+
+This module defines a ``MyList`` class.
+
+Using ``MyList``
+================
+
+This is an example text file on how to use ``Mylist``. 
+``MyList`` is a sub-class class of python list Object. Therefore,
+it inherits all attributes of the python built-in list class.
+
+How to use
+----------
+
+we assume that all the elements of the list will be of type int
+so we will only cover list element of type integer.
+
+::
+
+    >>> MyList = __import__('1-my_list').MyList
+    >>> my_list = MyList()
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.append(5)
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+
+
+The ``MyList`` provide us with a method that sort a list without
+affecting our original list object called ``print_sorted()``.
+
+::
+
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
+
+
+``my_list`` object was not affected
+
+::
+
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
