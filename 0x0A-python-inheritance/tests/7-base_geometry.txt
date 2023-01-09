@@ -20,6 +20,14 @@ with the message <name> must be an integer and
 if ``value`` is less or equal to 0 we raise a ValueError exception,
 with the message <name> must be greater than 0.
 
+Check for methods ``BaseGeometry`` docstring:
+    >>> mod1 = __import__("7-base_geometry").BaseGeometry.area.__doc__
+    >>> len(mod1) > 1
+    True
+    >>> mod2 = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
+    >>> len(mod2) > 1
+    True
+
 How to use ``area()``
 ---------------------
 
