@@ -15,6 +15,6 @@ In this project, you we review everything about Python we have learned so far:
 
 We also learn about:
 
-* `args` and `kwargs` $${color{red}Red}$$
+* `args` and `kwargs` <span style="color: red">`I am red`</span>
 * Serialization/Deserialization
 * JSON
