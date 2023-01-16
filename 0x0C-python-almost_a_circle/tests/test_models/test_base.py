@@ -5,7 +5,8 @@ import unittest
 
 from models.base import Base
 
-class BaseClass(unittest.TestCase):
+
+class TestBaseClass(unittest.TestCase):
     """Define unittests for ``Base`` class."""
 
     def test_without_arg(self):
@@ -46,6 +47,7 @@ class BaseClass(unittest.TestCase):
         bs2 = Base(12)
         bs3 = Base()
         self.assertEqual(bs1.id, 2)
+
 
 if __name__ == '__main__':
     unittest.main()
