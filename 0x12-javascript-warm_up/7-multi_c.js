@@ -1,8 +1,8 @@
 #!/usr/bin/node
 const argv = process.argv;
-let xTimes = Number(argv[2]);
+const xTimes = Number(argv[2]);
 if (xTimes) {
-  for (; xTimes >= 0; xTimes--) {
+  for (let i = 0; i < xTimes; i++) {
     console.log('C is fun');
   }
 } else {
