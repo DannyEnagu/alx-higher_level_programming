@@ -16,7 +16,7 @@ def main(argv):
                          passwd=argv[1],
                          db=argv[2], port=3306)
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name = '{:s}' ORDER BY \
+    cur.execute("SELECT * FROM states WHERE name LIKE '{:s}' ORDER BY \
                  id ASC".format(argv[3]))
     states = cur.fetchall()
     for state in states:
