@@ -15,7 +15,10 @@ def main(argv):
                          passwd=argv[1],
                          db=argv[2], port=3306)
     cur = db.cursor()
-    cur.execute("SELECT * FROM cities ORDER BY id ASC")
+    cur.execute("SELECT city.id, city.name, state.name FROM cities AS \
+                 city INNER JOIN states AS state \
+                 ON city.state_id = state.id \
+                 ORDER BY city.id ASC")
     cities = cur.fetchall()
     for city in cities:
         print(city)
