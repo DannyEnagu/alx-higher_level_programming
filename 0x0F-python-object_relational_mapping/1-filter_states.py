@@ -21,7 +21,8 @@ def main(argv):
     states = cur.fetchall()
     for state in states:
         print(state)
-
+    cur.close()
+    db.close()
 
 if __name__ == "__main__":
     main(sys.argv[1:])
