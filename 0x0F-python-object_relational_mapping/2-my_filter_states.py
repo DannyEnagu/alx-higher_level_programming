@@ -9,7 +9,7 @@ import sys
 
 def main(argv):
     """A script that displays all values thet matches the last
-    command line argument passed.
+       command line argument passed.
     """
     db = MySQLdb.connect(host="localhost",
                          user=argv[0],
