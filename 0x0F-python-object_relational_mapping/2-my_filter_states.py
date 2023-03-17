@@ -20,7 +20,8 @@ def main(argv):
                  id ASC".format(argv[3]))
     states = cur.fetchall()
     for state in states:
-        print(state)
+        if state[1] == argv[3]:
+            print(state)
 
     cur.close()
     db.close()
