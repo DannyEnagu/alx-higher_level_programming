@@ -16,7 +16,8 @@ def main(argv):
                          passwd=argv[1],
                          db=argv[2], port=3306)
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name LIKE %s", ('N%',))
+    cur.execute("SELECT * FROM states WHERE \
+                 REGEXP_LIKE(name, %s , 'c')", ('^N',))
     states = cur.fetchall()
     for state in states:
         print(state)
